@@ -55,7 +55,7 @@ async function createComment() {
 isBabelOrgMember()
   .then(isBabelOrgMember => {
     if (isBabelOrgMember) {
-      tools.exit.neutral("USer is member of babel org. Skipping.");
+      //tools.exit.neutral("User is member of babel org. Skipping.");
     }
   })
   .then(createComment())
