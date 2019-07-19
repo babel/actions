@@ -37,7 +37,7 @@ async function createComment() {
   return checkStatus(
     await github.issues.createComment({
       ...tools.context.repo,
-      issue_number: tools.context.issue.number,
+      issue_number: tools.context.issue.issue_number,
       body:
         `Hey @${
           tools.context.payload.issue.user.login
