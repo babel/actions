@@ -5,15 +5,12 @@ const tools = new Toolkit({
   event: ["issues.opened"]
 });
 
-const github = new Octokit({ auth: `token ${token}` });
-
-function checkCredentials() {
-  if (!process.env.BOT_TOKEN) {
-    tools.exit.failure(
-      "You must include the BOT_TOKEN as an environment variable."
-    );
-  }
+if (!process.env.BOT_TOKEN) {
+  tools.exit.failure(
+    "You must include the BOT_TOKEN as an environment variable."
+  );
 }
+const github = new Octokit({ auth: `token ${process.env.BOT_TOKEN}` });
 
 async function isBabelOrgMember() {
   const { data: organizations } = checkStatus(
@@ -52,8 +49,6 @@ async function createComment() {
     })
   );
 }
-
-checkCredentials();
 
 isBabelOrgMember()
   .then(isBabelOrgMember => {
