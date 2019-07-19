@@ -15,7 +15,8 @@ const github = new Octokit({ auth: `token ${process.env.BOT_TOKEN}` });
 async function isBabelOrgMember() {
   const { data: organizations } = checkStatus(
     await github.orgs.listForUser({
-      login: tools.context.payload.issue.user.login
+      username: tools.context.payload.issue.user.login,
+      per_page: 100
     })
   );
 
@@ -35,7 +36,8 @@ function checkStatus(result) {
 async function createComment() {
   return checkStatus(
     await github.issues.createComment({
-      ...tools.context.issue,
+      ...tools.context.repo,
+      issue_number: tools.context.issue.number,
       body:
         `Hey @${
           tools.context.payload.issue.user.login
