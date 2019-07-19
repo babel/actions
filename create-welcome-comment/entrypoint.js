@@ -37,7 +37,7 @@ async function createComment() {
   return checkStatus(
     await github.issues.createComment({
       ...tools.context.repo,
-      issue_number: tools.context.issue.issue_number,
+      issue_number: tools.context.issue.number,
       body:
         `Hey @${
           tools.context.payload.issue.user.login
@@ -58,7 +58,7 @@ isBabelOrgMember()
       //tools.exit.neutral("User is member of babel org. Skipping.");
     }
   })
-  .then(createComment())
+  .then(() => createComment())
   .then(() => {
     tools.exit.success("action successful");
   })
