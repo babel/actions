@@ -14,6 +14,6 @@ COPY yarn.lock ./
 
 RUN yarn install --frozen-lockfile --non-interactive
 
-COPY entrypoint.sh /entrypoint.js
+COPY entrypoint.js /entrypoint.js
 
 ENTRYPOINT ["node", "/entrypoint.js"]
