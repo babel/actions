@@ -1,0 +1,24 @@
+name: Is organization member
+description: Checks if a given user is a member of the given org
+
+inputs:
+  org:
+    description: The org name
+    required: true
+  username:
+    description: The username to check
+    required: true
+  token:
+    description: A GitHub access token
+    required: true
+
+outputs:
+  result:
+    description: 1 or 0
+
+runs:
+  using: node12
+  main: main.js
+
+branding:
+  icon: message-square
