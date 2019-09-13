@@ -1,9 +1,0 @@
-{
-  "name": "create-welcome-comment",
-  "private": true,
-  "main": "index.js",
-  "dependencies": {
-    "@octokit/rest": "^16.28.5",
-    "actions-toolkit": "^2.1.0"
-  }
-}
