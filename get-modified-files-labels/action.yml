@@ -1,0 +1,21 @@
+name: Get modified files labels
+description: Get a list of labels matching the files modified by a pull request
+
+inputs:
+  labels:
+    description: An object in the form { "label name" -> "glob pattern" }, encoded as JSON
+    required: true
+  pull_number:
+    description: The PR number
+    required: true
+  token:
+    description: A GitHub access token
+    required: true
+
+outputs:
+  labels:
+    description: An array containing all the matching labels, encoded as JSON
+
+runs:
+  using: node12
+  main: main.js

@@ -1,0 +1,17 @@
+name: Add labels
+description: Add the given labels to a given issue or pull request
+
+inputs:
+  labels:
+    description: A list of labels to add, encoded as a JSON array
+    required: true
+  number:
+    description: The number of the issue or pull request
+    required: true
+  token:
+    description: A GitHub access token
+    required: true
+
+runs:
+  using: node12
+  main: main.js
