@@ -13,8 +13,8 @@ const bot = get("bot_name");
 const comment = get("comment");
 
 const MILLIS_PER_DAY = 1000 * 60 * 60 * 24;
-const WAIT_BEFORE_WARNING = get("wait_before_warning") * MILLIS_PER_DAY;
-const WAIT_BEFORE_UNASSIGNING = get("wait_before_unassigning") * MILLIS_PER_DAY;
+const WAIT_BEFORE_WARNING = get("days_before_warning") * MILLIS_PER_DAY;
+const WAIT_BEFORE_UNASSIGNING = get("days_before_unassigning") * MILLIS_PER_DAY;
 
 const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
 

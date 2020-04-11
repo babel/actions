@@ -3,11 +3,11 @@ description: |
   Ping issues assignees who have not been working on the issue anymore
 
 inputs:
-  wait_before_warning:
-    description: Time (in days) before pinging
+  days_before_warning:
+    description: Number of days before posting a comment to ping the user
     required: true
-  wait_before_unassigning:
-    description: Time (in days) before unassigning after the warning
+  days_before_unassigning:
+    description: Number of days before unassigning after the warning
     required: true
   comment:
     description: The comment message
