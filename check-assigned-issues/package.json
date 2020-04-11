@@ -1,0 +1,10 @@
+{
+  "name": "check-assigned-issues",
+  "private": true,
+  "dependencies": {
+    "@actions/core": "^1.1.0",
+    "@actions/github": "^1.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "node-fetch": "^2.6.0"
+  }
+}

@@ -1,0 +1,27 @@
+name: Ping Assignees
+description: |
+  Ping issues assignees who have not been working on the issue anymore
+
+inputs:
+  wait_before_warning:
+    description: Time (in days) before pinging
+    required: true
+  wait_before_unassigning:
+    description: Time (in days) before unassigning after the warning
+    required: true
+  comment:
+    description: The comment message
+    required: true
+  bot_name:
+    description: The name of the GitHub account used to post the comment
+    required: true
+  token:
+    description: A GitHub access token
+    required: true
+
+runs:
+  using: node12
+  main: main.js
+
+branding:
+  icon: label
