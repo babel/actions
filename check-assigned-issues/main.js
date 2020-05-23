@@ -6,7 +6,7 @@ const github = require("@actions/github");
 const fetch = require("node-fetch");
 const cheerio = require("cheerio");
 
-const get = name => core.getInput(name, { requried: true });
+const get = name => core.getInput(name, { required: true });
 
 const token = get("token");
 const bot = get("bot_name");
