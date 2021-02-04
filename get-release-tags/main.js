@@ -5,7 +5,7 @@ const core = require("@actions/core");
 
 const exec = cmd => cp.execSync(cmd).toString().trim();
 
-const currentTag = exec(`git describe --abbrev=0 --tags ${process.env.GITHUB_SHA}`);
+const currentTag = exec(`git describe --abbrev=0 --tags HEAD`);
 const lastTag = exec(`git describe --abbrev=0 --tags ${currentTag}^`);
 
 core.setOutput("old", lastTag);
