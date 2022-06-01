@@ -1,0 +1,26 @@
+name: Open a Pull Request
+description: |
+  Open a pull request from the given branch
+
+inputs:
+  branch:
+    description: The branch name
+    required: true
+  title:
+    description: The PR title
+    required: true
+  description:
+    description: The PR description
+    required: true
+  labels:
+    decription: PR labels, one for each line
+  token:
+    description: A GitHub access token
+    required: true
+
+runs:
+  using: node12
+  main: main.js
+
+branding:
+  icon: github
