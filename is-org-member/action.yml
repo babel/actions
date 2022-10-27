@@ -17,7 +17,7 @@ outputs:
     description: 1 or 0
 
 runs:
-  using: node12
+  using: node16
   main: main.js
 
 branding:
