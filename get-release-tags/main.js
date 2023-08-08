@@ -3,7 +3,7 @@ cp.execSync(`cd ${__dirname}; npm ci`);
 
 const core = require("@actions/core");
 
-const prefix = core.getInput("token") ?? "";
+const prefix = core.getInput("prefix") ?? "";
 
 const exec = cmd => cp.execSync(cmd).toString().trim();
 
