@@ -1,6 +1,10 @@
 name: Get release tags
 description: Gets the new tag and last tag
 
+inputs:
+  prefix:
+    description: Only looks for tags matching this prefix
+
 outputs:
   old:
     description: The old tag
