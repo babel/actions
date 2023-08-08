@@ -12,3 +12,5 @@ const lastTag = exec(`git describe --abbrev=0 --tags --match '${prefix}*' ${curr
 
 core.setOutput("old", lastTag);
 core.setOutput("new", currentTag);
+
+console.log({ lastTag, currentTag });
