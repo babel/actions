@@ -8,7 +8,7 @@ const prefix = core.getInput("token") ?? "";
 const exec = cmd => cp.execSync(cmd).toString().trim();
 
 const currentTag = exec(`git describe --abbrev=0 --tags --match '${prefix}*' HEAD`);
-const lastTag = exec(`git describe --abbrev=0 --tags '${prefix}*' ${currentTag}^`);
+const lastTag = exec(`git describe --abbrev=0 --tags --match '${prefix}*' ${currentTag}^`);
 
 core.setOutput("old", lastTag);
 core.setOutput("new", currentTag);
