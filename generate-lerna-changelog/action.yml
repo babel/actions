@@ -6,6 +6,8 @@ inputs:
     description: Old tag
   to:
     description: New tag
+  filter:
+    description: Only consider tags containing this substring
 
 outputs:
   changelog:

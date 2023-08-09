@@ -9,6 +9,18 @@ const exec = cmd => cp.execSync(cmd).toString().trim();
 
 const tagFrom = core.getInput("from", { required: true });
 const tagTo = core.getInput("to", { required: true });
+const tagFilter = core.getInput("filter")
+
+if (tagFilter) { /* Patch lerna-changelog to only filter for relevant tags */
+  const fs = require("fs");
+  const filepath = __dirname + "/node_modules/lerna-changelog/lib/changelog.js"
+  let code = fs.readFileSync(filepath, "utf-8");
+  const INSERTION_POINT = ".map(ref => ref.substr(TAG_PREFIX.length))"
+  code = code.replace(INSERTION_POINT, `${INSERTION_POINT}
+    .filter(ref => ref.includes(${JSON.stringify(tagFilter)}))
+  `);
+  fs.writeFileSync(filepath, code);
+}
 
 const changelog = exec(`node ${lernaChangelog} --tag-from ${tagFrom} --tag-to ${tagTo}`);
 
