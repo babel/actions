@@ -9,7 +9,7 @@ inputs:
     description: The name of the changelog file
 
 runs:
-  using: node16
+  using: node20
   main: main.js
 
 branding:

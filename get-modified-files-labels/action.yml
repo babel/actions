@@ -17,5 +17,5 @@ outputs:
     description: An array containing all the matching labels, encoded as JSON
 
 runs:
-  using: node16
+  using: node20
   main: main.js
