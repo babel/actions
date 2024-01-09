@@ -17,6 +17,9 @@ inputs:
   token:
     description: A GitHub access token
     required: true
+  repository:
+    description: The GitHub owner and repository name. E.g. `babel/website`. By default it is the repo where the workflow is called
+    required: false
 
 runs:
   using: node16
