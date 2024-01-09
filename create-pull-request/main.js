@@ -12,7 +12,7 @@ const title = core.getInput("title", { required: true });
 const description = core.getInput("description", { required: true });
 const labels = core.getInput("labels");
 
-const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
+const [owner, repo] = (core.getInput("repository") || process.env.GITHUB_REPOSITORY).split("/");
 
 const octokit = new github.GitHub(token);
 
