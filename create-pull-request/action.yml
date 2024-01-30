@@ -20,6 +20,9 @@ inputs:
   repository:
     description: The GitHub owner and repository name. E.g. `babel/website`. By default it is the repo where the workflow is called
     required: false
+  base:
+    description: The PR base refs. E.g. `main`. By default it is the head of the repo where the workflow is called
+    required: false
 
 runs:
   using: node20

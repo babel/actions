@@ -4,7 +4,7 @@ cp.execSync(`cd ${__dirname}; npm ci`);
 const core = require("@actions/core");
 const github = require("@actions/github");
 
-const base = process.env.GITHUB_REF.replace("refs/heads/", "");
+const base = core.getInput("base") || process.env.GITHUB_REF.replace("refs/heads/", "");
 
 const token = core.getInput("token", { required: true });
 const branch = core.getInput("branch", { required: true });
