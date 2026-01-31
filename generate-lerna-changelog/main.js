@@ -8,7 +8,7 @@ const fs = require("fs");
   // GitHub has a bug where their API says that the Copilot user URL is
   // https://api.github.com/users/Copilot, but it's actually
   // https://api.github.com/users/Copilot[bot]
-  const fileToFix = path.resolve(process.cwd(), "node_modules/lerna-changelog/lib/github-api.js");
+  const fileToFix = path.resolve(__dirname, "node_modules/lerna-changelog/lib/github-api.js");
   let text = fs.readFileSync(fileToFix, "utf-8");
   text = text.replace("_fetch(url) {\n", `_fetch(url) { if (url === "https://api.github.com/users/Copilot") url += "[bot]";\n`);
   fs.writeFileSync(fileToFix, text);
