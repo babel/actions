@@ -2,6 +2,18 @@ const cp = require("child_process");
 cp.execSync(`cd ${__dirname}; npm ci`);
 
 const path = require("path");
+const fs = require("fs");
+
+{
+  // GitHub has a bug where their API says that the Copilot user URL is
+  // https://api.github.com/users/Copilot, but it's actually
+  // https://api.github.com/users/Copilot[bot]
+  const fileToFix = path.resolve(process.cwd(), "node_modules/lerna-changelog/lib/github-api.js");
+  let text = fs.readFileSync(fileToFix, "utf-8");
+  text = text.replace("_fetch(url) {\n", `_fetch(url) { if (url === "https://api.github.com/users/Copilot") url += "[bot]";\n`);
+  fs.writeFileSync(fileToFix, text);
+}
+
 const core = require("@actions/core");
 const lernaChangelog = path.resolve(__dirname, "node_modules/.bin/lerna-changelog");
 
